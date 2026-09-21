@@ -12,41 +12,41 @@
 </head>
 <body class="bg-stone-50 text-stone-800 min-h-screen flex flex-col justify-between">
 
-    <!-- Container chính -->
+    <!-- Container chính mô phỏng form di động sang trọng -->
     <div class="max-w-md mx-auto w-full bg-white shadow-sm min-h-screen flex flex-col justify-between">
         
         <!-- Nội dung Form Khách hàng -->
         <div id="client-view" class="p-6 pb-12">
-            <!-- Header -->
+            <!-- Header Thương hiệu -->
             <div class="text-center mb-6">
-                <p class="text-xs tracking-widest text-stone-500 uppercase font-medium mb-1">HANA STUDIO · WEDDING PLANNER</p>
+                <p class="text-[11px] tracking-widest text-stone-500 uppercase font-semibold mb-1">HANA STUDIO · WEDDING PLANNER</p>
                 <h1 class="text-2xl font-bold text-stone-900">Sổ Tay Cưới <span class="font-light text-stone-600">— nhận miễn phí</span></h1>
                 <p class="text-xs text-stone-600 mt-2">Điền vài thông tin, HANA STUDIO sẽ tạo ngay kế hoạch cưới cá nhân theo ngày cưới của hai bạn.</p>
             </div>
 
-            <!-- Các lợi ích -->
+            <!-- Các lợi ích nổi bật -->
             <div class="space-y-3 mb-6">
-                <div class="p-3 bg-stone-50 border border-stone-100 rounded-xl text-xs flex items-center gap-2">
-                    <span class="text-rose-600 font-bold">✓</span>
+                <div class="p-3 bg-stone-50/80 border border-stone-100 rounded-xl text-xs flex items-center gap-2.5 shadow-2xs">
+                    <span class="w-5 h-5 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-[10px]">✓</span>
                     <span><strong>Checklist chuẩn bị cưới thích ứng</strong> – tự sắp lịch theo ngày cưới.</span>
                 </div>
-                <div class="p-3 bg-stone-50 border border-stone-100 rounded-xl text-xs flex items-center gap-2">
-                    <span class="text-rose-600 font-bold">✓</span>
+                <div class="p-3 bg-stone-50/80 border border-stone-100 rounded-xl text-xs flex items-center gap-2.5 shadow-2xs">
+                    <span class="w-5 h-5 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-[10px]">✓</span>
                     <span><strong>Bảng ngân sách cưới</strong> – theo dõi dự kiến và thực tế.</span>
                 </div>
-                <div class="p-3 bg-stone-50 border border-stone-100 rounded-xl text-xs flex items-center gap-2">
-                    <span class="text-rose-600 font-bold">✓</span>
+                <div class="p-3 bg-stone-50/80 border border-stone-100 rounded-xl text-xs flex items-center gap-2.5 shadow-2xs">
+                    <span class="w-5 h-5 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-[10px]">✓</span>
                     <span><strong>Quản lý khách mời & số mâm</strong> – theo dõi phản hồi nhanh.</span>
                 </div>
-                <div class="p-3 bg-stone-50 border border-stone-100 rounded-xl text-xs flex items-center gap-2">
-                    <span class="text-rose-600 font-bold">✓</span>
+                <div class="p-3 bg-stone-50/80 border border-stone-100 rounded-xl text-xs flex items-center gap-2.5 shadow-2xs">
+                    <span class="w-5 h-5 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-[10px]">✓</span>
                     <span><strong>Lưu online trên thiết bị</strong> – quay lại tiếp tục bất cứ lúc nào.</span>
                 </div>
             </div>
 
-            <!-- Form đăng ký -->
+            <!-- Form đăng ký thông tin -->
             <div class="bg-stone-50/70 border border-stone-200/60 rounded-2xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-stone-900 mb-1">Nhận sổ tay của hai bạn</h2>
+                <h2 class="text-base font-bold text-stone-900 mb-1">Nhận sổ tay của hai bạn</h2>
                 <p class="text-xs text-stone-500 mb-4">Tạo miễn phí – chưa tới 30 giây.</p>
 
                 <form id="weddingForm" class="space-y-4">
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <!-- Giao diện Trang Quản Trị (Ẩn mặc định) -->
+        <!-- Giao diện Trang Quản Trị (Bảo mật bằng mật khẩu) -->
         <div id="admin-view" class="p-6 hidden flex-col min-h-screen">
             <div class="flex justify-between items-center mb-6 border-b pb-4">
                 <div>
@@ -111,7 +111,7 @@
             </button>
         </div>
 
-        <!-- Footer link quản trị kín đáo -->
+        <!-- Footer kín đáo chứa lối vào trang quản trị -->
         <footer class="py-4 text-center border-t border-stone-100">
             <button onclick="checkAdminAccess()" class="text-[11px] text-stone-400 hover:text-stone-700 transition">
                 🔒 Đăng nhập Quản Trị Hana Studio
@@ -121,8 +121,8 @@
 
     <!-- Script xử lý logic -->
     <script>
-        // Mật khẩu quản trị mặc định (Bạn có thể đổi thành mật khẩu của bạn ở đây)
-        const ADMIN_PASSWORD = "hana123@"; 
+        // Mật khẩu quản trị (Bạn có thể đổi chuỗi "123456" thành mật khẩu riêng của bạn)
+        const ADMIN_PASSWORD = "123456"; 
 
         const form = document.getElementById('weddingForm');
         const clientView = document.getElementById('client-view');
@@ -130,13 +130,11 @@
         const tableBody = document.getElementById('customerTableBody');
         const totalCount = document.getElementById('totalCount');
 
-        // Lấy danh sách khách hàng từ localStorage
         function getCustomers() {
             let data = localStorage.getItem('hana_customers');
             return data ? JSON.parse(data) : [];
         }
 
-        // Xử lý khi khách hàng gửi form
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const newCustomer = {
@@ -149,14 +147,13 @@
             };
 
             let customers = getCustomers();
-            customers.unshift(newCustomer); // Thêm lên đầu danh sách
+            customers.unshift(newCustomer);
             localStorage.setItem('hana_customers', JSON.stringify(customers));
 
             alert('Đăng ký thành công! Hana Studio sẽ liên hệ với bạn sớm.');
             form.reset();
         });
 
-        // Kiểm tra mật khẩu khi bấm vào trang quản trị
         function checkAdminAccess() {
             let pass = prompt("Nhập mật khẩu quản trị Hana Studio:");
             if (pass === ADMIN_PASSWORD) {
@@ -169,7 +166,6 @@
             }
         }
 
-        // Tải dữ liệu vào bảng quản trị
         function loadAdminData() {
             let customers = getCustomers();
             tableBody.innerHTML = '';
@@ -197,7 +193,6 @@
             });
         }
 
-        // Xóa một khách hàng
         function deleteCustomer(id) {
             if (confirm("Bạn có chắc chắn muốn xóa thông tin khách hàng này không?")) {
                 let customers = getCustomers();
@@ -207,7 +202,6 @@
             }
         }
 
-        // Đăng xuất khỏi trang quản trị
         function logoutAdmin() {
             adminView.classList.remove('flex');
             adminView.classList.add('hidden');
@@ -220,7 +214,6 @@
             clientView.classList.remove('hidden');
         }
 
-        // Xuất file CSV (mở bằng Excel)
         function exportToCSV() {
             let customers = getCustomers();
             if (customers.length === 0) {
