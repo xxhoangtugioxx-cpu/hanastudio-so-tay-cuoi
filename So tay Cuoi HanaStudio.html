@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sổ Tay Cưới — Nhận Miễn Phí | HANA STUDIO</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wedding: {
+                            50: '#fcfaf8',
+                            100: '#f7f2ee',
+                            200: '#eddcd6',
+                            300: '#dfc2b8',
+                            400: '#c59b8d',
+                            500: '#a87565',
+                            600: '#8c5c4d',
+                            700: '#734a3e',
+                            800: '#5c3a31',
+                            900: '#422822',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfaf8;
+            color: #422822;
+        }
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-wedding-50 min-h-screen flex flex-col justify-between selection:bg-wedding-200">
+
+    <header class="w-full py-4 px-6 bg-white/90 backdrop-blur-md border-b border-wedding-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="#" onclick="switchView('client')" class="text-xs uppercase tracking-widest text-wedding-700 font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-heart text-wedding-500 text-[10px]"></i>
+                <span>Sổ Tay Cưới – HANA STUDIO</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <button onclick="switchView('admin')" id="adminNavBtn" class="text-xs font-medium px-3 py-1.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 rounded-lg transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                    <span>Trang Quản Trị</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="clientView" class="w-full max-w-md mx-auto px-4 py-6 flex-grow">
+        
+        <!-- Brand Tagline -->
+        <div class="text-center mb-3">
+            <span class="text-[11px] uppercase tracking-[0.2em] text-wedding-400 font-medium">HANA WEDDING · WEDDING PLANNER</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="serif-font text-3xl sm:text-4xl text-center text-wedding-900 font-normal mb-3 leading-snug">
+            Sổ Tay Cưới <span class="text-wedding-400 font-light">—</span> <span class="italic font-serif">nhận miễn phí</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-center text-wedding-700/80 text-sm mb-6 leading-relaxed px-2">
+            Điền vài thông tin, HANA STUDIO sẽ tạo ngay kế hoạch cưới cá nhân theo ngày cưới của hai bạn.
+        </p>
+
+        <!-- Benefits Cards List -->
+        <div class="space-y-3.5 mb-8">
+            <!-- Benefit 1 -->
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Checklist chuẩn bị cưới thích ứng</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Tự sắp lịch theo ngày cưới của cặp đôi.</p>
+                </div>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Bảng ngân sách cưới</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Theo dõi chi phí dự kiến và thực tế minh bạch.</p>
+                </div>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Quản lý khách mời & số mâm</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Theo dõi phản hồi (RSVP) nhanh chóng và chính xác.</p>
+                </div>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Lưu online trên thiết bị</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Quay lại tiếp tục chỉnh sửa bất cứ lúc nào bạn muốn.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form Card -->
+        <div class="bg-white border border-wedding-200 rounded-3xl p-6 sm:p-8 shadow-lg shadow-wedding-900/5 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-wedding-100 rounded-bl-full -z-0 opacity-50 pointer-events-none"></div>
+
+            <div class="relative z-10">
+                <h2 class="serif-font text-2xl text-wedding-900 font-normal mb-1">Nhận sổ tay của hai bạn</h2>
+                <p class="text-xs text-wedding-500 mb-6 font-medium">Tạo miễn phí — chưa tới 30 giây.</p>
+
+                <form id="weddingForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                    <!-- Bride Name -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Tên cô dâu</label>
+                        <input type="text" id="brideName" required
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
+                            placeholder="VD: Ngọc Anh">
+                    </div>
+
+                    <!-- Groom Name -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Tên chú rể</label>
+                        <input type="text" id="groomName" required
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
+                            placeholder="VD: Minh Đức">
+                    </div>
+
+                    <!-- Wedding Date -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Ngày dự định cưới</label>
+                        <input type="date" id="weddingDate" required
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all text-wedding-800">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Số điện thoại nhận sổ tay (Zalo)</label>
+                        <input type="tel" id="phoneNumber" required
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
+                            placeholder="VD: 0912345678">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Email nhận link sổ tay</label>
+                        <input type="email" id="clientEmail" required
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
+                            placeholder="VD: couple@gmail.com">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn"
+                        class="w-full mt-2 py-3.5 px-6 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group">
+                        <span id="submitBtnText">Nhận Sổ Tay Cưới Ngay</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="adminView" class="w-full max-w-4xl mx-auto px-4 py-6 flex-grow hidden">
+        <div class="bg-white border border-wedding-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+            <!-- Admin Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-wedding-100">
+                <div>
+                    <h2 class="serif-font text-2xl text-wedding-900 font-normal">Quản Trị Khách Hàng</h2>
+                    <p class="text-xs text-wedding-500 mt-1">Danh sách các cặp đôi đã đăng ký nhận Sổ Tay Cưới Hana Studio.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="exportToCSV()" class="px-4 py-2 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-excel"></i>
+                        <span>Xuất Excel/CSV</span>
+                    </button>
+                    <button onclick="switchView('client')" class="px-4 py-2 bg-wedding-900 text-white text-xs font-medium rounded-xl hover:bg-wedding-800 transition-all">
+                        Quay lại Form
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search and Stats -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
+                <div class="relative w-full sm:w-72">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-wedding-400">
+                        <i class="fa-solid fa-search text-xs"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterRegistrations()" placeholder="Tìm kiếm theo tên, SĐT, email..."
+                        class="w-full pl-9 pr-4 py-2.5 bg-wedding-50 border border-wedding-200 rounded-xl text-xs text-wedding-900 focus:outline-none focus:ring-2 focus:ring-wedding-400">
+                </div>
+                <div class="text-xs text-wedding-600 font-medium self-end sm:self-center">
+                    Tổng số đăng ký: <span id="totalCount" class="font-bold text-wedding-900">0</span> cặp đôi
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="overflow-x-auto rounded-2xl border border-wedding-200">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-wedding-100/70 text-[11px] uppercase tracking-wider text-wedding-800 font-bold border-b border-wedding-200">
+                            <th class="py-3 px-4">STT</th>
+                            <th class="py-3 px-4">Cô Dâu & Chú Rể</th>
+                            <th class="py-3 px-4">Ngày Cưới</th>
+                            <th class="py-3 px-4">Số Điện Thoại</th>
+                            <th class="py-3 px-4">Email</th>
+                            <th class="py-3 px-4">Thời gian đăng ký</th>
+                            <th class="py-3 px-4 text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registrationsTableBody" class="divide-y divide-wedding-100 text-xs text-wedding-900">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="emptyState" class="hidden text-center py-12 text-wedding-400 text-xs">
+                Chưa có dữ liệu đăng ký nào.
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="fixed inset-0 bg-wedding-900/40 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
+            <div class="w-14 h-14 bg-wedding-100 text-wedding-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="serif-font text-2xl text-wedding-900 mb-2">Đăng ký thành công!</h3>
+            <p id="modalMessage" class="text-xs text-wedding-700/80 mb-6 leading-relaxed">
+                Cảm ơn hai bạn! Sổ tay cưới cá nhân hóa đã được lưu vào hệ thống Hana Studio.
+            </p>
+            <div class="space-y-2">
+                <button onclick="closeModal()" class="w-full py-3 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-xs uppercase tracking-wider rounded-xl transition-all">
+                    Xem Sổ Tay Ngay
+                </button>
+                <button onclick="switchView('admin'); closeModal();" class="w-full py-2.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 font-medium text-xs rounded-xl transition-all">
+                    Xem Trang Quản Trị
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 text-center text-wedding-500 text-xs border-t border-wedding-200/60 mt-8">
+        <p>© 2026 HANA STUDIO. All rights reserved. | Hướng dẫn cấu hình tên miền riêng bên dưới.</p>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Global Environment Setup
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'hanastudio-wedding-default';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "AIzaSyDummyKeyForDemoModeOnly12345",
+            authDomain: "hanastudio-app.firebaseapp.com",
+            projectId: "hanastudio-app",
+            storageBucket: "hanastudio-app.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123:web:abc"
+        };
+
+        let db, auth, userId = null;
+        let registrationsList = [];
+
+        // Initialize Firebase safely
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            const initAuth = async () => {
+                try {
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    userId = auth.currentUser?.uid || 'anonymous-user';
+                    initFirestoreListener();
+                } catch (err) {
+                    console.log("Auth fallback to local mode:", err);
+                    loadLocalFallback();
+                }
+            };
+            initAuth();
+        } catch (e) {
+            console.log("Firebase not configured, using localStorage mode.");
+            loadLocalFallback();
+        }
+
+        // Firestore Listener following RULE 1 & 2
+        function initFirestoreListener() {
+            if (!db || !userId) return;
+            const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'wedding_registrations');
+            
+            onSnapshot(colRef, (snapshot) => {
+                registrationsList = [];
+                snapshot.forEach((docSnap) => {
+                    registrationsList.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                renderTable(registrationsList);
+            }, (error) => {
+                console.error("Firestore snapshot error:", error);
+                loadLocalFallback();
+            });
+        }
+
+        // Fallback localStorage mechanism if offline or demo
+        function loadLocalFallback() {
+            const saved = localStorage.getItem('hana_wedding_registrations');
+            if (saved) {
+                try { registrationsList = JSON.parse(saved); } catch(e) { registrationsList = []; }
+            } else {
+                registrationsList = [
+                    { id: 'demo-1', brideName: 'Ngọc Anh', groomName: 'Minh Đức', weddingDate: '2026-10-20', phoneNumber: '0912345678', clientEmail: 'ngocanh@gmail.com', createdAt: new Date().toISOString() }
+                ];
+            }
+            renderTable(registrationsList);
+        }
+
+        function saveLocalFallback() {
+            localStorage.setItem('hana_wedding_registrations', JSON.stringify(registrationsList));
+            renderTable(registrationsList);
+        }
+
+        // Handle Form Submission
+        window.handleFormSubmit = async function(event) {
+            event.preventDefault();
+
+            const brideName = document.getElementById('brideName').value.trim();
+            const groomName = document.getElementById('groomName').value.trim();
+            const weddingDate = document.getElementById('weddingDate').value;
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const clientEmail = document.getElementById('clientEmail').value.trim();
+
+            if (!brideName || !groomName || !weddingDate || !phoneNumber || !clientEmail) return;
+
+            const newRecord = {
+                brideName,
+                groomName,
+                weddingDate,
+                phoneNumber,
+                clientEmail,
+                createdAt: new Date().toISOString()
+            };
+
+            const btnText = document.getElementById('submitBtnText');
+            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
+
+            try {
+                if (db && userId) {
+                    const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'wedding_registrations');
+                    await addDoc(colRef, newRecord);
+                } else {
+                    newRecord.id = 'local-' + Date.now();
+                    registrationsList.unshift(newRecord);
+                    saveLocalFallback();
+                }
+
+                // Success Modal Display
+                const messageEl = document.getElementById('modalMessage');
+                messageEl.innerHTML = `Chúc mừng hạnh phúc cô dâu <b>${brideName}</b> & chú rể <b>${groomName}</b>!<br>Hệ thống Hana Studio đã lưu thông tin và gửi Sổ tay cưới đến SĐT & Email của bạn.`;
+
+                const modal = document.getElementById('successModal');
+                const content = document.getElementById('modalContent');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                }, 10);
+
+                document.getElementById('weddingForm').reset();
+            } catch (err) {
+                console.error("Error saving record:", err);
+            } finally {
+                btnText.innerText = 'Nhận Sổ Tay Cưới Ngay';
+            }
+        };
+
+        // Render Admin Table
+        function renderTable(data) {
+            const tbody = document.getElementById('registrationsTableBody');
+            const emptyState = document.getElementById('emptyState');
+            document.getElementById('totalCount').innerText = data.length;
+
+            tbody.innerHTML = '';
+            if (data.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            // Sort newest first
+            const sorted = [...data].sort((a,b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+            sorted.forEach((item, index) => {
+                const dateFormatted = item.weddingDate ? new Date(item.weddingDate).toLocaleDateString('vi-VN') : '';
+                const createdFormatted = item.createdAt ? new Date(item.createdAt).toLocaleString('vi-VN') : '';
+                
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-wedding-50/50 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-medium text-wedding-500">${index + 1}</td>
+                    <td class="py-3 px-4 font-semibold text-wedding-900">${escapeHtml(item.brideName)} & ${escapeHtml(item.groomName)}</td>
+                    <td class="py-3 px-4">${dateFormatted}</td>
+                    <td class="py-3 px-4"><a href="tel:${escapeHtml(item.phoneNumber)}" class="text-wedding-700 underline">${escapeHtml(item.phoneNumber)}</a></td>
+                    <td class="py-3 px-4 text-wedding-700">${escapeHtml(item.clientEmail)}</td>
+                    <td class="py-3 px-4 text-[11px] text-wedding-500">${createdFormatted}</td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="deleteRecord('${item.id}')" class="p-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-all" title="Xóa">
+                            <i class="fa-solid fa-trash text-xs"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        window.deleteRecord = async function(id) {
+            if (!confirm('Bạn có chắc chắn muốn xóa bản ghi này?')) return;
+            try {
+                if (db && userId) {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wedding_registrations', id));
+                } else {
+                    registrationsList = registrationsList.filter(item => item.id !== id);
+                    saveLocalFallback();
+                }
+            } catch (err) {
+                console.error("Error deleting:", err);
+            }
+        };
+
+        window.filterRegistrations = function() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = registrationsList.filter(item => 
+                (item.brideName && item.brideName.toLowerCase().includes(query)) ||
+                (item.groomName && item.groomName.toLowerCase().includes(query)) ||
+                (item.phoneNumber && item.phoneNumber.includes(query)) ||
+                (item.clientEmail && item.clientEmail.toLowerCase().includes(query))
+            );
+            renderTable(filtered);
+        };
+
+        window.exportToCSV = function() {
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+            csvContent += "STT,Ten Co Dau,Ten Chu Re,Ngay Cuoi,So Dien Thoai,Email,Ngay Dang Ky\r\n";
+
+            registrationsList.forEach((item, index) => {
+                const row = [
+                    index + 1,
+                    `"${item.brideName || ''}"`,
+                    `"${item.groomName || ''}"`,
+                    `"${item.weddingDate || ''}"`,
+                    `"${item.phoneNumber || ''}"`,
+                    `"${item.clientEmail || ''}"`,
+                    `"${item.createdAt || ''}"`
+                ];
+                csvContent += row.join(",") + "\r\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `HanaStudio_Danh_Sach_Khach_Hang_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+
+    <script>
+        window.switchView = function(viewName) {
+            const clientView = document.getElementById('clientView');
+            const adminView = document.getElementById('adminView');
+
+            if (viewName === 'admin') {
+                clientView.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                adminView.classList.add('hidden');
+                clientView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        window.closeModal = function() {
+            const modal = document.getElementById('successModal');
+            const content = document.getElementById('modalContent');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        };
+    </script>
+
+</body>
+</html>
