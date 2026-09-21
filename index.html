@@ -294,7 +294,7 @@
 
     <!-- Footer -->
     <footer class="w-full py-6 text-center text-wedding-500 text-xs border-t border-wedding-200/60 mt-8">
-        <p>© 2026 HANA STUDIO. All rights reserved. | Hướng dẫn cấu hình tên miền riêng bên dưới.</p>
+        <p>© 2026 HANA STUDIO. All rights reserved.</p>
     </footer>
 
     <script type="module">
@@ -302,15 +302,17 @@
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Global Environment Setup
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'hanastudio-wedding-default';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyDummyKeyForDemoModeOnly12345",
-            authDomain: "hanastudio-app.firebaseapp.com",
-            projectId: "hanastudio-app",
-            storageBucket: "hanastudio-app.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123:web:abc"
+        const appId = 'hanasotaycuoi-prod';
+        
+        // Cấu hình Firebase chuẩn xác từ dự án của bạn
+        const firebaseConfig = {
+            apiKey: "AIzaSyBs1FAElFxZGOLFN_6NLz7yumExwYHJ2kI",
+            authDomain: "hanasotaycuoi.firebaseapp.com",
+            projectId: "hanasotaycuoi",
+            storageBucket: "hanasotaycuoi.firebasestorage.app",
+            messagingSenderId: "13716474485",
+            appId: "1:13716474485:web:6229aec23b11545e87063c",
+            measurementId: "G-9SN58MQQ7Z"
         };
 
         let db, auth, userId = null;
@@ -324,11 +326,7 @@
 
             const initAuth = async () => {
                 try {
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
+                    await signInAnonymously(auth);
                     userId = auth.currentUser?.uid || 'anonymous-user';
                     initFirestoreListener();
                 } catch (err) {
@@ -338,11 +336,11 @@
             };
             initAuth();
         } catch (e) {
-            console.log("Firebase not configured, using localStorage mode.");
+            console.log("Firebase init error, using localStorage mode:", e);
             loadLocalFallback();
         }
 
-        // Firestore Listener
+        // Firestore Real-time Listener
         function initFirestoreListener() {
             if (!db || !userId) return;
             const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'wedding_registrations');
@@ -426,6 +424,7 @@
                 document.getElementById('weddingForm').reset();
             } catch (err) {
                 console.error("Error saving record:", err);
+                alert("Có lỗi khi lưu dữ liệu lên server. Vui lòng kiểm tra lại kết nối mạng!");
             } finally {
                 btnText.innerText = 'Nhận Sổ Tay Cưới Ngay';
             }
@@ -527,17 +526,14 @@
     </script>
 
     <script>
-        // MẬT KHẨU QUẢN TRỊ (Bạn có thể thay đổi chuỗi mật khẩu dưới đây tùy ý)
         const ADMIN_PASSWORD = "hanastudio2026";
 
         window.requestAdminAccess = function() {
-            // Kiểm tra xem đã đăng nhập phiên làm việc trước đó chưa
             if (sessionStorage.getItem('hana_admin_logged') === 'true') {
                 switchView('admin');
                 return;
             }
             
-            // Mở modal nhập mật khẩu
             const modal = document.getElementById('passwordModal');
             const content = document.getElementById('passwordModalContent');
             document.getElementById('adminPasswordInput').value = '';
