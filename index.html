@@ -43,29 +43,18 @@
         .serif-font {
             font-family: 'Playfair Display', serif;
         }
-        /* Custom smooth entrance animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
     </style>
 </head>
 <body class="bg-wedding-50 min-h-screen flex flex-col justify-between selection:bg-wedding-200">
 
-    <!-- Header Navigation -->
-    <header class="w-full py-4 px-6 bg-white/90 backdrop-blur-md border-b border-wedding-200/80 sticky top-0 z-50 shadow-xs">
+    <header class="w-full py-4 px-6 bg-white/90 backdrop-blur-md border-b border-wedding-200 sticky top-0 z-50 shadow-xs">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <a href="#" onclick="switchView('client')" class="text-xs uppercase tracking-widest text-wedding-700 font-semibold flex items-center gap-2 group">
-                <span class="w-6 h-6 rounded-full bg-wedding-100 flex items-center justify-center text-wedding-600 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-heart text-[10px]"></i>
-                </span>
+            <a href="#" onclick="switchView('client')" class="text-xs uppercase tracking-widest text-wedding-700 font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-heart text-wedding-500 text-[10px]"></i>
                 <span>Sổ Tay Cưới – HANA STUDIO</span>
             </a>
             <div class="flex items-center gap-2">
-                <button onclick="switchView('admin')" id="adminNavBtn" class="text-xs font-medium px-3.5 py-2 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 rounded-xl transition-all flex items-center gap-1.5 shadow-xs">
+                <button onclick="requestAdminAccess()" id="adminNavBtn" class="text-xs font-medium px-3 py-1.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 rounded-lg transition-all flex items-center gap-1.5">
                     <i class="fa-solid fa-lock text-[10px]"></i>
                     <span>Trang Quản Trị</span>
                 </button>
@@ -73,14 +62,11 @@
         </div>
     </header>
 
-    <!-- Main Client Registration View -->
-    <main id="clientView" class="w-full max-w-md mx-auto px-4 py-8 sm:py-12 flex-grow animate-fade-in">
+    <main id="clientView" class="w-full max-w-md mx-auto px-4 py-6 flex-grow">
         
         <!-- Brand Tagline -->
-        <div class="text-center mb-4">
-            <span class="inline-block py-1 px-3 bg-wedding-100/80 rounded-full text-[11px] uppercase tracking-[0.2em] text-wedding-600 font-medium border border-wedding-200/50">
-                HANA WEDDING · WEDDING PLANNER
-            </span>
+        <div class="text-center mb-3">
+            <span class="text-[11px] uppercase tracking-[0.2em] text-wedding-400 font-medium">HANA WEDDING · WEDDING PLANNER</span>
         </div>
 
         <!-- Headline -->
@@ -89,71 +75,71 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-center text-wedding-700/80 text-sm mb-8 leading-relaxed px-2">
-            Điền vài thông tin, HANA STUDIO sẽ tạo ngay kế hoạch cưới cá nhân hóa theo đúng ngày cưới của hai bạn.
+        <p class="text-center text-wedding-700/80 text-sm mb-6 leading-relaxed px-2">
+            Điền vài thông tin, HANA STUDIO sẽ tạo ngay kế hoạch cưới cá nhân theo ngày cưới của hai bạn.
         </p>
 
         <!-- Benefits Cards List -->
         <div class="space-y-3.5 mb-8">
             <!-- Benefit 1 -->
-            <div class="bg-white/80 backdrop-blur-xs border border-wedding-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3.5">
-                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs shadow-inner">
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
                     <i class="fa-solid fa-check"></i>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Checklist chuẩn bị cưới thích ứng</h3>
-                    <p class="text-xs text-wedding-700/70 leading-relaxed">Tự động sắp xếp thời gian biểu phù hợp với ngày cưới.</p>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Tự sắp lịch theo ngày cưới của cặp đôi.</p>
                 </div>
             </div>
 
             <!-- Benefit 2 -->
-            <div class="bg-white/80 backdrop-blur-xs border border-wedding-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3.5">
-                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs shadow-inner">
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
                     <i class="fa-solid fa-check"></i>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Bảng ngân sách cưới minh bạch</h3>
-                    <p class="text-xs text-wedding-700/70 leading-relaxed">Dự trù chi phí chi tiết tránh phát sinh ngoài ý muốn.</p>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Bảng ngân sách cưới</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Theo dõi chi phí dự kiến và thực tế minh bạch.</p>
                 </div>
             </div>
 
             <!-- Benefit 3 -->
-            <div class="bg-white/80 backdrop-blur-xs border border-wedding-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3.5">
-                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs shadow-inner">
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
                     <i class="fa-solid fa-check"></i>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Quản lý khách mời & số mâm</h3>
-                    <p class="text-xs text-wedding-700/70 leading-relaxed">Theo dõi phản hồi RSVP và sắp xếp vị trí ngồi tối ưu.</p>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Theo dõi phản hồi (RSVP) nhanh chóng và chính xác.</p>
                 </div>
             </div>
 
             <!-- Benefit 4 -->
-            <div class="bg-white/80 backdrop-blur-xs border border-wedding-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3.5">
-                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs shadow-inner">
+            <div class="bg-white border border-wedding-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-wedding-100 flex items-center justify-center shrink-0 mt-0.5 text-wedding-600 text-xs">
                     <i class="fa-solid fa-check"></i>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Lưu trữ đám mây an toàn</h3>
-                    <p class="text-xs text-wedding-700/70 leading-relaxed">Truy cập và tiếp tục cập nhật mọi lúc mọi nơi trên điện thoại.</p>
+                    <h3 class="text-sm font-semibold text-wedding-900 mb-0.5">Lưu online trên thiết bị</h3>
+                    <p class="text-xs text-wedding-700/70 leading-relaxed">Quay lại tiếp tục chỉnh sửa bất cứ lúc nào bạn muốn.</p>
                 </div>
             </div>
         </div>
 
         <!-- Registration Form Card -->
-        <div class="bg-white border border-wedding-200/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-wedding-900/5 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-36 h-36 bg-wedding-100 rounded-bl-full -z-0 opacity-40 pointer-events-none"></div>
+        <div class="bg-white border border-wedding-200 rounded-3xl p-6 sm:p-8 shadow-lg shadow-wedding-900/5 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-wedding-100 rounded-bl-full -z-0 opacity-50 pointer-events-none"></div>
 
             <div class="relative z-10">
                 <h2 class="serif-font text-2xl text-wedding-900 font-normal mb-1">Nhận sổ tay của hai bạn</h2>
-                <p class="text-xs text-wedding-500 mb-6 font-medium">Tạo miễn phí trong chưa đầy 30 giây.</p>
+                <p class="text-xs text-wedding-500 mb-6 font-medium">Tạo miễn phí — chưa tới 30 giây.</p>
 
                 <form id="weddingForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
                     <!-- Bride Name -->
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Tên cô dâu</label>
                         <input type="text" id="brideName" required
-                            class="w-full px-4 py-3 bg-wedding-50/60 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all shadow-2xs"
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
                             placeholder="VD: Ngọc Anh">
                     </div>
 
@@ -161,7 +147,7 @@
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Tên chú rể</label>
                         <input type="text" id="groomName" required
-                            class="w-full px-4 py-3 bg-wedding-50/60 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all shadow-2xs"
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
                             placeholder="VD: Minh Đức">
                     </div>
 
@@ -169,14 +155,14 @@
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Ngày dự định cưới</label>
                         <input type="date" id="weddingDate" required
-                            class="w-full px-4 py-3 bg-wedding-50/60 border border-wedding-200 rounded-xl text-sm text-wedding-900 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all text-wedding-800 shadow-2xs">
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all text-wedding-800">
                     </div>
 
                     <!-- Phone Number -->
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Số điện thoại nhận sổ tay (Zalo)</label>
                         <input type="tel" id="phoneNumber" required
-                            class="w-full px-4 py-3 bg-wedding-50/60 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all shadow-2xs"
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
                             placeholder="VD: 0912345678">
                     </div>
 
@@ -184,13 +170,13 @@
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-wider text-wedding-700 mb-1.5">Email nhận link sổ tay</label>
                         <input type="email" id="clientEmail" required
-                            class="w-full px-4 py-3 bg-wedding-50/60 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all shadow-2xs"
+                            class="w-full px-4 py-3 bg-wedding-50/50 border border-wedding-200 rounded-xl text-sm text-wedding-900 placeholder:text-wedding-300 focus:outline-none focus:ring-2 focus:ring-wedding-400 focus:bg-white transition-all"
                             placeholder="VD: couple@gmail.com">
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit" id="submitBtn"
-                        class="w-full mt-3 py-3.5 px-6 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group cursor-pointer">
+                        class="w-full mt-2 py-3.5 px-6 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group">
                         <span id="submitBtnText">Nhận Sổ Tay Cưới Ngay</span>
                         <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                     </button>
@@ -200,8 +186,7 @@
 
     </main>
 
-    <!-- Admin Management View -->
-    <div id="adminView" class="w-full max-w-4xl mx-auto px-4 py-8 flex-grow hidden animate-fade-in">
+    <div id="adminView" class="w-full max-w-4xl mx-auto px-4 py-6 flex-grow hidden">
         <div class="bg-white border border-wedding-200 rounded-3xl p-6 sm:p-8 shadow-sm">
             <!-- Admin Header -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-wedding-100">
@@ -210,11 +195,11 @@
                     <p class="text-xs text-wedding-500 mt-1">Danh sách các cặp đôi đã đăng ký nhận Sổ Tay Cưới Hana Studio.</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="exportToCSV()" class="px-4 py-2 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5 cursor-pointer">
-                        <i class="fa-solid fa-file-excel text-emerald-600"></i>
+                    <button onclick="exportToCSV()" class="px-4 py-2 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-excel"></i>
                         <span>Xuất Excel/CSV</span>
                     </button>
-                    <button onclick="switchView('client')" class="px-4 py-2 bg-wedding-900 text-white text-xs font-medium rounded-xl hover:bg-wedding-800 transition-all cursor-pointer">
+                    <button onclick="switchView('client')" class="px-4 py-2 bg-wedding-900 text-white text-xs font-medium rounded-xl hover:bg-wedding-800 transition-all">
                         Quay lại Form
                     </button>
                 </div>
@@ -259,21 +244,48 @@
         </div>
     </div>
 
-    <!-- Success Modal Popup -->
+    <!-- Password Modal -->
+    <div id="passwordModal" class="fixed inset-0 bg-wedding-900/40 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="passwordModalContent">
+            <div class="w-14 h-14 bg-wedding-100 text-wedding-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3 class="serif-font text-2xl text-wedding-900 mb-2">Đăng nhập quản trị</h3>
+            <p class="text-xs text-wedding-700/80 mb-4 leading-relaxed">
+                Vui lòng nhập mật khẩu quản trị để tiếp tục.
+            </p>
+            <form onsubmit="handlePasswordSubmit(event)" class="space-y-3">
+                <input type="password" id="adminPasswordInput" required
+                    class="w-full px-4 py-3 bg-wedding-50 border border-wedding-200 rounded-xl text-sm text-wedding-900 focus:outline-none focus:ring-2 focus:ring-wedding-400 text-center"
+                    placeholder="Nhập mật khẩu...">
+                <p id="passwordError" class="text-red-500 text-[11px] hidden">Mật khẩu không chính xác!</p>
+                <div class="flex gap-2 pt-1">
+                    <button type="button" onclick="closePasswordModal()" class="w-1/2 py-2.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 font-medium text-xs rounded-xl transition-all">
+                        Hủy
+                    </button>
+                    <button type="submit" class="w-1/2 py-2.5 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-xs rounded-xl transition-all">
+                        Xác nhận
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 bg-wedding-900/40 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-wedding-200" id="modalContent">
-            <div class="w-14 h-14 bg-wedding-100 text-wedding-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl shadow-inner">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
+            <div class="w-14 h-14 bg-wedding-100 text-wedding-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
                 <i class="fa-solid fa-heart"></i>
             </div>
             <h3 class="serif-font text-2xl text-wedding-900 mb-2">Đăng ký thành công!</h3>
             <p id="modalMessage" class="text-xs text-wedding-700/80 mb-6 leading-relaxed">
                 Cảm ơn hai bạn! Sổ tay cưới cá nhân hóa đã được lưu vào hệ thống Hana Studio.
             </p>
-            <div class="space-y-2.5">
-                <button onclick="closeModal()" class="w-full py-3 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-xs uppercase tracking-wider rounded-xl transition-all shadow-md cursor-pointer">
+            <div class="space-y-2">
+                <button onclick="closeModal()" class="w-full py-3 bg-wedding-900 hover:bg-wedding-800 text-white font-medium text-xs uppercase tracking-wider rounded-xl transition-all">
                     Xem Sổ Tay Ngay
                 </button>
-                <button onclick="switchView('admin'); closeModal();" class="w-full py-2.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 font-medium text-xs rounded-xl transition-all cursor-pointer">
+                <button onclick="requestAdminAccess(); closeModal();" class="w-full py-2.5 bg-wedding-100 hover:bg-wedding-200 text-wedding-800 font-medium text-xs rounded-xl transition-all">
                     Xem Trang Quản Trị
                 </button>
             </div>
@@ -281,16 +293,16 @@
     </div>
 
     <!-- Footer -->
-    <footer class="w-full py-6 text-center text-wedding-500 text-xs border-t border-wedding-200/60 mt-12 bg-white/40">
-        <p>© 2026 HANA STUDIO. All rights reserved. | Wedding Planner & Designer Platform.</p>
+    <footer class="w-full py-6 text-center text-wedding-500 text-xs border-t border-wedding-200/60 mt-8">
+        <p>© 2026 HANA STUDIO. All rights reserved. | Hướng dẫn cấu hình tên miền riêng bên dưới.</p>
     </footer>
 
-    <!-- Firebase and Application Logic Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
+        // Firebase Global Environment Setup
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'hanastudio-wedding-default';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
             apiKey: "AIzaSyDummyKeyForDemoModeOnly12345",
@@ -304,6 +316,7 @@
         let db, auth, userId = null;
         let registrationsList = [];
 
+        // Initialize Firebase safely
         try {
             const app = initializeApp(firebaseConfig);
             db = getFirestore(app);
@@ -329,6 +342,7 @@
             loadLocalFallback();
         }
 
+        // Firestore Listener
         function initFirestoreListener() {
             if (!db || !userId) return;
             const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'wedding_registrations');
@@ -345,6 +359,7 @@
             });
         }
 
+        // Fallback localStorage mechanism
         function loadLocalFallback() {
             const saved = localStorage.getItem('hana_wedding_registrations');
             if (saved) {
@@ -362,6 +377,7 @@
             renderTable(registrationsList);
         }
 
+        // Handle Form Submission
         window.handleFormSubmit = async function(event) {
             event.preventDefault();
 
@@ -415,6 +431,7 @@
             }
         };
 
+        // Render Admin Table
         function renderTable(data) {
             const tbody = document.getElementById('registrationsTableBody');
             const emptyState = document.getElementById('emptyState');
@@ -436,14 +453,14 @@
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-wedding-50/50 transition-colors';
                 tr.innerHTML = `
-                    <td class="py-3.5 px-4 font-medium text-wedding-500">${index + 1}</td>
-                    <td class="py-3.5 px-4 font-semibold text-wedding-900">${escapeHtml(item.brideName)} & ${escapeHtml(item.groomName)}</td>
-                    <td class="py-3.5 px-4">${dateFormatted}</td>
-                    <td class="py-3.5 px-4"><a href="tel:${escapeHtml(item.phoneNumber)}" class="text-wedding-700 underline">${escapeHtml(item.phoneNumber)}</a></td>
-                    <td class="py-3.5 px-4 text-wedding-700">${escapeHtml(item.clientEmail)}</td>
-                    <td class="py-3.5 px-4 text-[11px] text-wedding-500">${createdFormatted}</td>
-                    <td class="py-3.5 px-4 text-center">
-                        <button onclick="deleteRecord('${item.id}')" class="p-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-all cursor-pointer" title="Xóa">
+                    <td class="py-3 px-4 font-medium text-wedding-500">${index + 1}</td>
+                    <td class="py-3 px-4 font-semibold text-wedding-900">${escapeHtml(item.brideName)} & ${escapeHtml(item.groomName)}</td>
+                    <td class="py-3 px-4">${dateFormatted}</td>
+                    <td class="py-3 px-4"><a href="tel:${escapeHtml(item.phoneNumber)}" class="text-wedding-700 underline">${escapeHtml(item.phoneNumber)}</a></td>
+                    <td class="py-3 px-4 text-wedding-700">${escapeHtml(item.clientEmail)}</td>
+                    <td class="py-3 px-4 text-[11px] text-wedding-500">${createdFormatted}</td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="deleteRecord('${item.id}')" class="p-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-all" title="Xóa">
                             <i class="fa-solid fa-trash text-xs"></i>
                         </button>
                     </td>
@@ -510,6 +527,59 @@
     </script>
 
     <script>
+        // MẬT KHẨU QUẢN TRỊ (Bạn có thể thay đổi chuỗi mật khẩu dưới đây tùy ý)
+        const ADMIN_PASSWORD = "hanastudio2026";
+
+        window.requestAdminAccess = function() {
+            // Kiểm tra xem đã đăng nhập phiên làm việc trước đó chưa
+            if (sessionStorage.getItem('hana_admin_logged') === 'true') {
+                switchView('admin');
+                return;
+            }
+            
+            // Mở modal nhập mật khẩu
+            const modal = document.getElementById('passwordModal');
+            const content = document.getElementById('passwordModalContent');
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('passwordError').classList.add('hidden');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+                document.getElementById('adminPasswordInput').focus();
+            }, 10);
+        };
+
+        window.handlePasswordSubmit = function(event) {
+            event.preventDefault();
+            const inputVal = document.getElementById('adminPasswordInput').value;
+            const errorEl = document.getElementById('passwordError');
+
+            if (inputVal === ADMIN_PASSWORD) {
+                sessionStorage.setItem('hana_admin_logged', 'true');
+                closePasswordModal();
+                switchView('admin');
+            } else {
+                errorEl.classList.remove('hidden');
+                document.getElementById('adminPasswordInput').focus();
+            }
+        };
+
+        window.closePasswordModal = function() {
+            const modal = document.getElementById('passwordModal');
+            const content = document.getElementById('passwordModalContent');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        };
+
         window.switchView = function(viewName) {
             const clientView = document.getElementById('clientView');
             const adminView = document.getElementById('adminView');
